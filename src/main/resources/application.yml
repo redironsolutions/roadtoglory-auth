@@ -1,7 +1,7 @@
 server:
   compression:
     enabled: true
-  port: 8080
+  port: 7070
 
 spring:
   datasource:
@@ -20,3 +20,4 @@ roadtoglory:
   oauth:
     signing-key: secretKey
     security-realm: RoadToGlory Security Realm
+    resource-ids: roadtoglory

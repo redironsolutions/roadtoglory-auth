@@ -18,7 +18,7 @@ public class ExampleClient implements Client {
                 .secret(passwordEncoder.encode("secret"))
                 .authorizedGrantTypes("password")
                 .scopes("read", "write")
-                .resourceIds("testjwtresourceid");
+                .resourceIds("roadtoglory");
     }
 
 }

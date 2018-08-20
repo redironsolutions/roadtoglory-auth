@@ -1,8 +1,9 @@
 package io.rediron.auth.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class AdditionalWebConfig {
+public class AdditionalWebConfig implements WebMvcConfigurer {
 
 }
