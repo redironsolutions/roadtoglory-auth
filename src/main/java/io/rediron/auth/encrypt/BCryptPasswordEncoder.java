@@ -27,6 +27,10 @@ public class BCryptPasswordEncoder implements PasswordEncoder {
     }
 
     public BCryptPasswordEncoder(int strength, SecureRandom random) {
+
+        // TODO: Revert this when java supports 2y bcrypt
+        // Change to 2y from 2a
+        //this.BCRYPT_PATTERN = Pattern.compile("\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
         this.BCRYPT_PATTERN = Pattern.compile("\\A\\$2y?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
         if (strength == -1 || strength >= 4 && strength <= 31) {
             this.strength = strength;
@@ -48,7 +52,9 @@ public class BCryptPasswordEncoder implements PasswordEncoder {
             salt = BCrypt.gensalt();
         }
 
-        return BCrypt.hashpw(rawPassword.toString(), salt);
+        // TODO: Revert this when java supports 2y bcrypt
+        // Converting 2a to 2y
+        return BCrypt.hashpw(rawPassword.toString(), salt).replaceFirst("\\$2a", "$2y");
     }
 
     public boolean matches(CharSequence rawPassword, String encodedPassword) {
