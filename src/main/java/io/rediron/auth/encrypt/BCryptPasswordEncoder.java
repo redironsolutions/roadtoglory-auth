@@ -1,7 +1,6 @@
 package io.rediron.auth.encrypt;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.security.SecureRandom;
@@ -54,7 +53,8 @@ public class BCryptPasswordEncoder implements PasswordEncoder {
 
         // TODO: Revert this when java supports 2y bcrypt
         // Converting 2a to 2y
-        return BCrypt.hashpw(rawPassword.toString(), salt).replaceFirst("\\$2a", "\\$2y");
+        salt = salt.replaceFirst("2a", "2y");
+        return BCrypt.hashpw(rawPassword.toString(), salt).replaceFirst("2a", "2y");
     }
 
     public boolean matches(CharSequence rawPassword, String encodedPassword) {
