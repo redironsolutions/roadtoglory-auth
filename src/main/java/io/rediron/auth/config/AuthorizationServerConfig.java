@@ -38,16 +38,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         for(Client client : clients){
             client.configure(builder);
         }
-        /*
-        TODO: Remove this after testing
-        configurer
-                .inMemory()
-                .withClient(clientId)
-                .secret(passwordEncoder.encode(clientSecret))
-                .authorizedGrantTypes(grantType)
-                .scopes(scopeRead, scopeWrite)
-                .resourceIds(resourceIds);
-                */
     }
 
     @Override

@@ -5,8 +5,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
 // TODO: Remove this after testing
+@Component
 public class ExampleClient implements Client {
 
     @Autowired
